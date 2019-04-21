@@ -27,6 +27,25 @@ value = 90
 rainbowMode = false
 timer = 0
 
+function castle.postopened(post)
+    local data = post.data
+    zoom = data.zoom
+    zoomVel = data.zoomVel
+    translateX = data.translateX
+    translateY = data.translateY
+    maxIterations = data.maxIterations
+    realConst = data.realConst
+    imagConst = data.imagConst
+    circleRadius = data.circleRadius
+    mode = data.mode
+    hue = data.hue
+    saturation = data.saturation
+    value = data.value
+    rainbowMode = data.rainbowMode
+    timer = data.timer
+    paused = true
+end
+
 showSplashText = true
 splashText = [[
     Fractal Explorer
@@ -251,6 +270,29 @@ function love.keypressed(key, code)
     if key == "f12" then
         local screenshot = love.graphics.newScreenshot(false)
         screenshot:encode("png", "Screenshot" .. love.timer.getTime() .. ".png")
+    end
+
+    if key == 'p' then
+        castle.post.create {
+            message = 'Check out this fractal!',
+            mediaType = 'capture',
+            data = {
+                zoom = zoom,
+                zoomVel = zoomVel,
+                translateX = translateX,
+                translateY = translateY,
+                maxIterations = maxIterations,
+                realConst = realConst,
+                imagConst = imagConst,
+                circleRadius = circleRadius,
+                mode = mode,
+                hue = hue,
+                saturation = saturation,
+                value = value,
+                rainbowMode = rainbowMode,
+                timer = timer,
+            }
+        }
     end
 end
 
