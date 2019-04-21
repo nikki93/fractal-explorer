@@ -276,7 +276,7 @@ function love.keypressed(key, code)
         network.async(function()
             castle.post.create {
                 message = 'Check out this fractal!',
-                mediaType = 'capture',
+                media = 'capture',
                 data = {
                     zoom = zoom,
                     zoomVel = zoomVel,
