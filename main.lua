@@ -273,26 +273,28 @@ function love.keypressed(key, code)
     end
 
     if key == 'p' then
-        castle.post.create {
-            message = 'Check out this fractal!',
-            mediaType = 'capture',
-            data = {
-                zoom = zoom,
-                zoomVel = zoomVel,
-                translateX = translateX,
-                translateY = translateY,
-                maxIterations = maxIterations,
-                realConst = realConst,
-                imagConst = imagConst,
-                circleRadius = circleRadius,
-                mode = mode,
-                hue = hue,
-                saturation = saturation,
-                value = value,
-                rainbowMode = rainbowMode,
-                timer = timer,
+        network.async(function()
+            castle.post.create {
+                message = 'Check out this fractal!',
+                mediaType = 'capture',
+                data = {
+                    zoom = zoom,
+                    zoomVel = zoomVel,
+                    translateX = translateX,
+                    translateY = translateY,
+                    maxIterations = maxIterations,
+                    realConst = realConst,
+                    imagConst = imagConst,
+                    circleRadius = circleRadius,
+                    mode = mode,
+                    hue = hue,
+                    saturation = saturation,
+                    value = value,
+                    rainbowMode = rainbowMode,
+                    timer = timer,
+                }
             }
-        }
+        end)
     end
 end
 
