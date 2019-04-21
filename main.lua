@@ -54,8 +54,8 @@ splashText = [[
 
     Controls:
     Pause: Space
-    Move viewport: Arrow keys or right mouse button
-    Change constant: WASD or Mouse movement
+    Move viewport: Arrow keys
+    Change constant: WASD
     Change max iterations: , or .
     Change zoom: + or - or Mouse wheel
     Change supersampling: [ or ]
@@ -157,15 +157,15 @@ function love.wheelmoved(x, y)
     zoomVel = zoomVel + sign(y)/5 * zoom
 end
 
-function love.mousemoved(x, y, dx, dy)
-    if love.mouse.isDown(2) then
-        translateX = translateX - dx/love.graphics.getWidth()/zoom * 2
-        translateY = translateY - dy/love.graphics.getHeight()/zoom * 2
-    elseif not paused then
-        realConst = (love.graphics.getWidth()/2 - x)/love.graphics.getWidth() * -2
-        imagConst = (love.graphics.getHeight()/2 - y)/love.graphics.getHeight() * -2
-    end
-end
+-- function love.mousemoved(x, y, dx, dy)
+--     if love.mouse.isDown(2) then
+--         translateX = translateX - dx/love.graphics.getWidth()/zoom * 2
+--         translateY = translateY - dy/love.graphics.getHeight()/zoom * 2
+--     elseif not paused then
+--         realConst = (love.graphics.getWidth()/2 - x)/love.graphics.getWidth() * -2
+--         imagConst = (love.graphics.getHeight()/2 - y)/love.graphics.getHeight() * -2
+--     end
+-- end
 
 function love.keypressed(key, code)
     love.keyboard.setKeyRepeat(true)
