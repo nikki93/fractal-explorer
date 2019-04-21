@@ -1,0 +1,4 @@
+title: Fractal explorer
+owner: nikki
+description: Explore and post fractals! Code by Ikroth from https://love2d.org/forums/viewtopic.php?t=83267.
+main: main.lua
