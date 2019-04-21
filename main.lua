@@ -43,7 +43,6 @@ function castle.postopened(post)
     value = data.value
     rainbowMode = data.rainbowMode
     timer = data.timer
-    paused = true
 end
 
 showSplashText = true
@@ -58,15 +57,11 @@ splashText = [[
     Change constant: WASD
     Change max iterations: , or .
     Change zoom: + or - or Mouse wheel
-    Change supersampling: [ or ]
     Change fractals: Tab
     Randomize colors: E
     Rainbow colors mode: R
     Hide this menu: F1
     Hide UI: F2
-    Toggle Fullscreen: F11
-    Take screenshot: F12 (saved in ]]..love.filesystem.getAppdataDirectory()..[[)
-    Close program: Escape
 ]]
 showHud = true
 fullscreen = false
@@ -189,11 +184,11 @@ function love.keypressed(key, code)
         supersampling = 1
     end
 
-    if key == "]" then
-        supersampling = supersampling + 1
-    elseif key == "[" then
-        supersampling = supersampling - 1
-    end
+    -- if key == "]" then
+    --     supersampling = supersampling + 1
+    -- elseif key == "[" then
+    --     supersampling = supersampling - 1
+    -- end
 
     supersampling = math.max(1, math.min(8, supersampling))
 
